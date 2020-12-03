@@ -1,0 +1,261 @@
+si interruptor = 1
+entonces {
+piloto_enerigia=1;
+}
+si paro_emergencia = 1
+entonces {
+banda_1 = 0; banda_2 = 0;
+banda_3 = 0; banda_4 = 0
+;
+piston_1 = 0; piston_2 = 0
+;
+}
+mientras interruptor = 1 y start = 1 y selector=0
+haga {
+generador_caja = 1
+si sensor_inicio = 1
+entonces {
+banda_1 = 1
+generador_caja = 0
+}
+si sensor_caja=1
+entonces {
+banda_2 = 1
+contador_total + 1
+}
+si temporizador = 1
+entonces{
+banda_1 = 0 despues de 1000ms
+si sesensor_caja=1 y sensor_piston1 = 1 entonces {
+banda_2 = 0
+piston_1=0
+}
+si sensor_local = 1
+entoces{
+contador_local + 1
+}
+si sensor_caja=2
+6
+entonces {
+banda_2 = 1
+contador_total + 1
+}
+si temporizador = 1
+entonces{
+banda_1 = 0 despues de 1000ms
+}
+si sesensor_caja=2 y sensor_piston1 = 1
+entonces {
+banda_2 = 0; piston_1 = 1
+;
+}
+si sensor_caja=3
+entonces {
+banda_2 = 1
+contador_total + 1
+}
+si temporizador = 1
+entonces{
+banda_1 = 0 despues de 1000ms
+}
+si sesensor_caja=3 y sensor_piston1 = 1
+entonces {
+banda_2 = 0
+piston_1 = 1
+}
+si sesensor_banda_4 = 1
+entonces {
+banda_2 = 0
+banda_4 = 1
+}
+si sesensor_caja = 2 y sensor_piston2 = 1
+entonces {
+banda_4 = 0
+piston_2 = 1
+}
+si sensor_nacional = 1
+7
+entonces{
+piston_2 = 0
+contador_3 + 1
+}
+si sesensor_caja = 3 y sensor_piston2 = 1
+entonces {
+banda_4 = 1
+piston_2 = 0
+}
+si sensor_internacional = 1
+entonces{
+piston_2 = 0
+contador_4 + 1
+}
+si temporizador_2 = 1
+entonces{
+banda_4 = 0 despues de 1000ms
+}
+}
+mientras interruptor = 1 y strat = 1 y selector=1
+haga {
+generador_caja = 1
+si sensor_inicio = 1
+entonces {
+banda_1 = 1
+}
+si sensor_caja=1
+entonces {
+banda_2 = 1
+contador_total + 1
+}
+si temporizador = 1
+entonces{
+banda_1 = 0 despues de 1000ms
+si sesensor_caja=1 y sensor_piston1 = 1
+8
+entonces {
+banda_2 = 0
+piston_1=0
+}
+si sensor_local = 1
+entoces{
+contador_local + 1
+}
+si sensor_caja=2
+entonces {
+banda_2 = 1
+contador_total + 1
+}
+si temporizador = 1
+entonces{
+banda_1 = 0 despues de 1000ms
+}
+si sesensor_caja=2 y sensor_piston1 = 1
+entonces {
+banda_2 = 0
+piston_1 = 1
+}
+si sensor_caja=3
+entonces {
+banda_2 = 1
+contador_total + 1
+}
+si temporizador = 1
+entonces{
+banda_1 = 0 despues de 1000ms
+}
+si sesensor_caja=3 y sensor_piston1 = 1
+entonces {
+banda_2 = 0
+piston_1 = 1
+}
+si sesensor_banda_4 = 1
+9
+entonces {
+banda_2 = 0
+banda_4 = 1
+}
+si sesensor_caja = 2 y sensor_piston2 = 1
+entonces {
+banda_4 = 0
+piston_2 = 1
+}
+si sensor_nacional = 1
+entonces{
+piston_2 = 0
+contador_3 + 1
+}
+si sesensor_caja = 3 y sensor_piston2 = 1
+entonces {
+banda_4 = 1
+piston_2 = 0
+}
+si sensor_internacional = 1
+entonces{
+piston_2 = 0
+contador_4 + 1
+}
+si temporizador_2 = 1
+entonces{
+banda_4 = 0 despues de 1000ms
+}
+}
+mientras stop = 1
+haga {
+si sensor_inicio = 1
+entonces {
+banda_1 = 1
+}
+si sensor_caja=1
+entonces { 10
+banda_2 = 1
+contador_total + 1
+}
+si temporizador = 1
+entonces{
+banda_1 = 0 despues de 1000ms
+si sesensor_caja=1 y sensor_piston1 = 1
+entonces {
+banda_2 = 0
+piston_1=0
+}
+si sensor_local = 1
+entoces{
+contador_local + 1
+}
+si sensor_caja=2
+entonces {
+banda_2 = 1
+contador_total + 1
+}
+si temporizador = 1
+entonces{
+banda_1 = 0 despues de 1000ms
+}
+si sesensor_caja=2 y sensor_piston1 = 1
+entonces {
+banda_2 = 0
+piston_1 = 1
+}
+si sensor_caja=3
+entonces {
+banda_2 = 1
+contador_total + 1
+}
+si temporizador = 1
+entonces{ 11
+banda_1 = 0 despues de 1000ms
+}
+si sesensor_caja=3 y sensor_piston1 = 1
+entonces {
+banda_2 = 0; piston_1 = 1;
+}
+si sesensor_banda_4 = 1
+entonces {
+banda_2 = 0
+banda_4 = 1
+}
+si sesensor_caja = 2 y sensor_piston2 = 1
+entonces {
+banda_4 = 0; piston_2 = 1
+}
+si sensor_nacional = 1
+entonces{
+piston_2 = 0; contador_3 + 1
+}
+si sesensor_caja = 3 y sensor_piston2 = 1
+entonces {
+banda_4 = 1; piston_2 = 0;
+}
+si sensor_internacional = 1
+entonces{
+piston_2 = 0
+contador_4 + 1
+}
+si temporizador_2 = 1
+entonces{
+banda_4 = 0 despues de 1000ms
+}
+si sensor_local = 1 o sensor_nacional = 1 o sensor_internacional = 1
+entonces{
+stop = 0; start = 0
+}
+}
